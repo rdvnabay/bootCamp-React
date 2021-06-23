@@ -1,7 +1,8 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field,ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { FormField,Button } from "semantic-ui-react";
+import { FormField,Button,Label } from "semantic-ui-react";
+import KITextInput from "../utilities/customFormControls/KITextInput";
 
 export default function ProductAdd() {
   const initialValues = {
@@ -21,12 +22,8 @@ export default function ProductAdd() {
           console.log(values);
       }}>
         <Form className="ui form">
-          <FormField>
-            <Field name="productName" placeholder="Ürün Adı"></Field>
-          </FormField>
-          <FormField>
-            <Field name="unitPrice" placeholder="Ürün Fiyatı"></Field>
-          </FormField>
+            <KITextInput name="productName" placeholder="Ürün Adı"/>
+            <KITextInput name="unitPrice" placeholder="Ürün Fiyatı"/>
           <Button color="green" type="submit">Ekle</Button>
         </Form>
       </Formik>
